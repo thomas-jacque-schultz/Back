@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>fr.schub</groupId>
-    <artifactId>Schub-Back</artifactId>
+    <artifactId>Back</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>Schub-Back</name>
+    <name>Back</name>
     <description>Schub-Back</description>
     <properties>
         <java.version>21</java.version>
