@@ -1,5 +1,4 @@
-package fr.schub.schubback.Api.Controller;
-
+package fr.schub.schubback.api.controllers.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,7 +9,7 @@ public class DockerStatusController {
 
     @GetMapping(value = "/docker/{containerID}")
     public String getTestData(@PathVariable Integer containerID) {
-        if(containerID == 1) {
+        if (containerID == 1) {
             return "Hello World";
         }
         return "Wrong id";
