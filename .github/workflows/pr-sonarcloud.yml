@@ -1,0 +1,29 @@
+name: pr - sonarcloud analysis
+
+on:
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+permissions:
+  pull-requests: read
+
+jobs:
+  analysis:
+    name: pr - sonarcloud
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Java with Maven
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: Build with Maven and analyze with SonarCloud
+        run: mvn clean verify sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.projectKey=thomas-jacque-schultz_Back -Dsonar.organization=thomas-jacque-schultz -Dsonar.login=${{ secrets.SONAR_TOKEN }}
